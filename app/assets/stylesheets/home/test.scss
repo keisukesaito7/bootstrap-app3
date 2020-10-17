@@ -1,0 +1,17 @@
+// test#homeのCSSはこちらに記載してください
+
+.test-wrapper {
+  height: 100vh;
+  padding: 0 200px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.card-img-top {
+  width: 100px;
+}
+
+.list-group {
+  width: 500px;
+}
