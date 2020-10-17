@@ -5,6 +5,10 @@
   <%= form_with model: @user, url: user_registration_path, local: true, class: "form-signin" do |f| %>
     
     <h1 class="h3 mb-3 font-weight-normal">新規登録</h1>
+    <br>
+    <i class="fa fa-spinner fa-spin"></i>
+    <i class="fab fa-amazon"></i>
+    <i class="fab fa-twitter"></i>
 
     <%= f.label :name, class: "sr-only" %><br />
     <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "ユーザー名" %>
