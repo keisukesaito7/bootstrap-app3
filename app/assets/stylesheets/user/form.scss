@@ -1,5 +1,5 @@
 .text-center {
-  height: 100vh;
+  height: calc(100vh - 56px - 56px);
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;

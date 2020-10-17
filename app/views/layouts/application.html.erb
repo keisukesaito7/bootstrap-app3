@@ -8,8 +8,21 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <nav class="navbar navbar-light bg-light">
+    <%= link_to 'BootstrapApp3', root_path, class: 'navbar-brand ' %>
+    <div class='button-field'>
+      <% if user_signed_in? %>
+        <%= link_to 'ログアウト', destroy_user_session_path, class: 'btn btn-outline-secondary', method: :delete %>
+      <% else %>
+        <%= link_to '新規登録', new_user_registration_path, class: 'btn btn-outline-primary' %>
+        <%= link_to 'ログイン', new_user_session_path, class: 'btn btn-outline-primary' %>
+      <% end %>
+    </div>
+  </nav>
   <body>
     <%= yield %>
   </body>
+  <nav class="navbar navbar-light bg-light">
+    <%= link_to 'BootstrapApp3', root_path, class: 'navbar-brand ' %>
+  </nav>
 </html>

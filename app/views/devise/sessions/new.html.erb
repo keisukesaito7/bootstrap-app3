@@ -1,26 +1,41 @@
-<h2>Log in</h2>
+<link rel="stylesheet" href="/assets/user/form.scss">
+<div class="text-center">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <%= form_with model: @user, url: user_session_path, local: true, class: "form-signin" do |f| %>
+  <h1 class="h3 mb-3 font-weight-normal">ログイン <i class="fas fa-sign-in-alt fa-spin"></i></h1>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+    <%= f.label :email, class: "sr-only" %><br />
+    <%= f.email_field :email, autocomplete: "email", class: "form-control", placeholder: "メールアドレス" %>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+    <%= f.label :password, class: "sr-only" %><br />
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "パスワード" %><br />
+
+    <div class="actions">
+      <button type="button" class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">
+      確認画面へ
+      </button>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">確認画面</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            OKならログイン！
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">やっぱりやめる</button>
+            <%= f.submit 'ログイン', url: user_session_path, class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
