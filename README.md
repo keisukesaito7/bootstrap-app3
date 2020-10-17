@@ -48,6 +48,7 @@
 
 ## 何かテストしたい時は
 
-- home#testのビューでテストを
-    - URI: /test
-    - 現在はカードと
+- home#testのビューでテスト
+    - URI: "/test"
+    - view: app/views/home/test.html.erb
+    - css: app/assets/stylesheets/home/test/scss
