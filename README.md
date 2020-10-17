@@ -22,7 +22,7 @@
 
 - yarn add bootstrap@4.3.1 jquery popper.js
 
-- yarn @fortawesome/fontawesome-free
+- yarn add @fortawesome/fontawesome-free
 
 - app/javascript/packs/application.js
     - import 'bootstrap'
