@@ -14,4 +14,8 @@ class TasksController < ApplicationController
   def set_current_user
     @user = User.find(current_user.id)
   end
+
+  def task_params
+    params.require(:task).permit(:content)
+  end
 end
