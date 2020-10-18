@@ -8,7 +8,7 @@ class TasksController < ApplicationController
 
   private
   def redirect_to_root_path
-    redirect_to root_path if user_signed_in?
+    redirect_to root_path unless user_signed_in?
   end
 
   def set_current_user
