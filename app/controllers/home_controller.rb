@@ -10,7 +10,7 @@ class HomeController < ApplicationController
   private
   def already_signed_in
     if user_signed_in?
-      redirect_to test_path
+      redirect_to tasks_path
     end
   end
 end
