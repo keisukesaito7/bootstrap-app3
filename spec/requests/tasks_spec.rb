@@ -1,10 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe "Tasks", type: :request do
-  describe "GET /tasks" do
-    it "works! (now write some real specs)" do
-      get tasks_index_path
-      expect(response).to have_http_status(200)
+RSpec.describe "TasksController", type: :request do
+  before do
+    @task = FactoryBot.create(:task)
+  end
+
+  describe "GET #index" do
+    it "indexアクションにリクエストすると正常にレスポンスが返ってくる" do
+      get tasks_path
+      expect(response.status).to eq 302 # loginしないとtasks_pathへアクセスできない
     end
   end
 end
