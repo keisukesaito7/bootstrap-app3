@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="/assets/task/index.scss">
+
+<%= link_to '新規タスク', new_task_path, class: "btn btn-primary" %>
+<div class="task-wrap">
+  <div class="list-group">
+    <ul>
+      <% @tasks.each do |task| %>
+       <li><%= task.content %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
