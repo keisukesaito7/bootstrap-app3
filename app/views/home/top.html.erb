@@ -1,9 +1,9 @@
-<link href="/assets/home/top.scss" rel="stylesheet">
-<div class="text-center">
-  <% if user_signed_in? %>    
-    <h1>Hello! <%= current_user.name %></h1>
-  <% else %>
-    <h1>Sign in!</h1>
-  <% end %>
-</div>
+<% if user_signed_in? %>
+  <%= render 'tasks/index' %>
+<% else %>
+  <link href="/assets/home/top.scss" rel="stylesheet">
+  <div class="text-center">
+    <h1><%= link_to "Sign in!", new_user_session_path %></h1>
+  </div>
+<% end %>
 

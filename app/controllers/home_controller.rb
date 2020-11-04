@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
-  before_action :already_signed_in, only: [:top]
-
+  before_action :set_tasks, if: :user_signed_in?
+  
   def top
   end
 
@@ -8,9 +8,7 @@ class HomeController < ApplicationController
   end
 
   private
-  def already_signed_in
-    if user_signed_in?
-      redirect_to tasks_path
-    end
+  def set_tasks
+    @tasks = Task.all.order("created_at DESC")
   end
 end
