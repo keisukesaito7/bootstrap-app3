@@ -23,7 +23,7 @@ RSpec.describe "Users#Resistration", type: :system do
       # モーダル上の「アカウント登録」ボタンを押してユーザーを登録
       expect{ find("input[name='commit']").click }.to change{ User.count }.by(1)
       # 登録後はtasks_pathへ遷移
-      expect(current_path).to eq tasks_path
+      expect(current_path).to eq root_path
       # ヘッダーに「ログアウト」ボタンを確認
       expect(page).to have_content("ログアウト")
       # ヘッダーから「ログイン」「新規登録」がなくなったことを確認
@@ -76,7 +76,7 @@ RSpec.describe "Users#Session", type: :system do
       # ログインボタンをクリック
       find("input[name='commit']").click
       # ページ遷移を確認
-      expect(current_path).to eq tasks_path
+      expect(current_path).to eq root_path
       # ログアウトボタンの確認
       expect(page).to have_content("ログアウト")
       # 新規登録、ログインボタンがないのを確認
