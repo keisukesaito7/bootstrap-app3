@@ -1,20 +1,17 @@
 <link rel="stylesheet" href="/assets/home/test.scss">
 
-<div class="test-wrapper">
-  <div class="card" style="width: 18rem;">
-    <img src="assets/item.png" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">カードも作れます</h5>
-      <p class="card-text">Bootstrapすごい</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
+<div class="container" style="height: calc(100vh - 56px - 56px); background-color: lightskyblue;">
+  <h2>< 576px で縦並び</h2>
+  <h2>≧ 576px で幅半分</h2>
+  <div class="row pb-5">
+    <div class="col-sm-6 btn btn-danger">col-sm-6</div>
+    <div class="col-sm-6 btn btn-secondary">col-sm-6</div>
   </div>
-
-  <ul class="list-group">
-    <li class="list-group-item active"><%= "ようこそ！ #{current_user.name}さん！"%></li>
-    <li class="list-group-item">ここはテストページです</li>
-    <li class="list-group-item"><span class="text-danger">Bootstrap</span>を好きに使ってください <i class="fab fa-apple text-danger"></i></li>
-    <li class="list-group-item text-warning">色を変えたりして楽しめます</li>
-    <li class="list-group-item">Font Awesomeも楽しいですよ<i class="fab fa-angellist"></i></li>
-  </ul>
+  <h2>< 768px で縦並び</h2>
+  <h2>≧ 768px で幅比1:3:2</h2>
+  <div class="row pb-5">
+    <div class="col-md-2 btn btn-danger">col-sm-2</div>
+    <div class="col-md-6 btn btn-secondary">col-sm-6</div>
+    <div class="col-md-4 btn btn-primary">col-sm-4</div>
+  </div>
 </div>
