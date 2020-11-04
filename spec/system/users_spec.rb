@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Users", type: :system do
+RSpec.describe "Users#Resistration", type: :system do
   before do
     @user = FactoryBot.build(:user)
   end
@@ -51,6 +51,37 @@ RSpec.describe "Users", type: :system do
       expect{ find("input[name='commit']").click }.to change{ User.count }.by(0)
       # 新規登録ページへ戻されることを確認する
       expect(current_path).to eq '/users'
+    end
+  end
+end
+
+RSpec.describe "Users#Session", type: :system do
+  before do
+    @user = FactoryBot.create(:user)
+  end
+
+  context 'ログインができるとき' do
+    it 'ログインページで正しく入力すればログインしトップページへ移動' do
+      # トップページへ移動
+      visit root_path
+      # ログインボタンを確認
+      expect(page).to have_content("ログイン")
+      # ログインページへ遷移
+      visit new_user_session_path
+      # フォームに値を入力
+      fill_in "user_email", with: @user.email
+      fill_in "user_password", with: @user.password
+      # モーダルを表示
+      find("button[data-target='#exampleModal']").click
+      # ログインボタンをクリック
+      find("input[name='commit']").click
+      # ページ遷移を確認
+      expect(current_path).to eq tasks_path
+      # ログアウトボタンの確認
+      expect(page).to have_content("ログアウト")
+      # 新規登録、ログインボタンがないのを確認
+      expect(page).to have_no_content("新規登録")
+      expect(page).to have_no_content("ログイン")
     end
   end
 
