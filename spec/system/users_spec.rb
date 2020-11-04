@@ -85,4 +85,24 @@ RSpec.describe "Users#Session", type: :system do
     end
   end
 
+  context 'ログインができないとき' do
+    it 'ログインページで正しく入力されなければログインページへ戻ってくる' do
+      # トップページへ移動
+      visit root_path
+      # ログインボタンを確認
+      expect(page).to have_content("ログイン")
+      # ログインページへ遷移
+      visit new_user_session_path
+      # フォームに値を入力
+      fill_in "user_email", with: ""
+      fill_in "user_password", with: ""
+      # モーダルを表示
+      find("button[data-target='#exampleModal']").click
+      # ログインボタンをクリック
+      find("input[name='commit']").click
+      # ページ遷移を確認
+      expect(current_path).to eq '/users/sign_in'
+    end
+  end
+
 end
